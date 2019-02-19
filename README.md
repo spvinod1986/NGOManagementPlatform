@@ -1,2 +1,2 @@
-# NGOManagementPlatform
-A web platform for configuring and managing non profit organisation
+# NonProfitManagementPlatform
+A web platform for configuring and managing non profit organisation.
