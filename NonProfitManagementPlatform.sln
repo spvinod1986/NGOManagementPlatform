@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NonProfit.Application", "No
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NonProfit.Web", "NonProfit.Web\NonProfit.Web.csproj", "{EC96CEC8-A2F5-415F-AB1D-20075F4C7CA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NonProfit.Application.Tests", "NonProfit.Application.Tests\NonProfit.Application.Tests.csproj", "{11D519D9-B194-4E01-812E-AD59F156D020}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{EC96CEC8-A2F5-415F-AB1D-20075F4C7CA3}.Release|x64.Build.0 = Release|Any CPU
 		{EC96CEC8-A2F5-415F-AB1D-20075F4C7CA3}.Release|x86.ActiveCfg = Release|Any CPU
 		{EC96CEC8-A2F5-415F-AB1D-20075F4C7CA3}.Release|x86.Build.0 = Release|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Debug|x64.Build.0 = Debug|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Debug|x86.Build.0 = Debug|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Release|x64.ActiveCfg = Release|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Release|x64.Build.0 = Release|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Release|x86.ActiveCfg = Release|Any CPU
+		{11D519D9-B194-4E01-812E-AD59F156D020}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
