@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NonProfit.Persistence;
 
 namespace NonProfit.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class EventsController : ControllerBase
     {
+        private readonly NonProfitContext _context;
+
+        public EventsController(NonProfitContext context)
+        {
+            _context = context;
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var test = _context.Events.FirstOrDefault();
+            return new string[] { "event1", "event2" };
         }
 
         // GET api/values/5
