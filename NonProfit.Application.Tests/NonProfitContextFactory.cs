@@ -19,8 +19,8 @@ namespace NonProfit.Application.Tests
             context.Database.EnsureCreated();
 
             context.Events.AddRange(new[] {
-                new Event { Name = "EventName1", StartDateTime = DateTime.Now, EndDateTime = DateTime.Now},
-                new Event { Name = "EventName2", StartDateTime = DateTime.Now, EndDateTime = DateTime.Now},
+                new Event { Id = 1, Name = "TestEvent1", StartDateTime = DateTime.Now, EndDateTime = DateTime.Now},
+                new Event { Id = 2, Name = "TestEvent1", StartDateTime = DateTime.Now, EndDateTime = DateTime.Now},
             });
 
             context.SaveChanges();
