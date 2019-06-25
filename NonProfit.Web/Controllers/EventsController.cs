@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using NonProfit.Application.Events.Queries.GetEventDetail;
 using NonProfit.Persistence;
+using Microsoft.Extensions.DependencyInjection;
+using NonProfit.Application.Events.Commands.CreateEvent;
 
 namespace NonProfit.Web.Controllers
 {
@@ -11,40 +15,38 @@ namespace NonProfit.Web.Controllers
     [ApiController]
     public class EventsController : ControllerBase
     {
-        private readonly NonProfitContext _context;
+        private IMediator _mediator;
+        protected IMediator Mediator => _mediator ?? HttpContext.RequestServices.GetService<IMediator>();
 
-        public EventsController(NonProfitContext context)
-        {
-            _context = context;
-        }
-        // GET api/values
+        // GET api/events
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            var test = _context.Events.FirstOrDefault();
             return new string[] { "event1", "event2" };
         }
 
-        // GET api/values/5
+        // GET api/events/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<ActionResult<EventDetailModel>> Get(int id)
         {
-            return "value";
+            return Ok(await Mediator.Send(new GetEventDetailQuery { Id = id }));
         }
 
-        // POST api/values
+        // POST api/events
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] CreateEventCommand command)
         {
+            await Mediator.Send(command);
+            return NoContent();
         }
 
-        // PUT api/values/5
+        // PUT api/events/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/events/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
