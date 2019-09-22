@@ -19,18 +19,25 @@ namespace NonProfit.Application.Events.Queries.GetEventDetail
         }
         public async Task<EventDetailModel> Handle(GetEventDetailQuery request, CancellationToken cancellationToken)
         {
-            var entity = await _context.Events.Where(e => e.Id == request.Id)
+            var entity = await _context.Events.Where(e => e.Id == request.EventId)
                                         .Select(e => new EventDetailModel
                                         {
-                                            Id = e.Id,
-                                            Name = e.Name,
-                                            StartDateTime = e.StartDateTime,
-                                            EndDateTime = e.EndDateTime
+                                            EventName = e.Name,
+                                            EventTypeName = e.EventType.Name,
+                                            Address1 = e.Address.Address1,
+                                            Address2 = e.Address.Address2,
+                                            City = e.Address.City,
+                                            State = e.Address.State,
+                                            Country = e.Address.Country,
+                                            PostalCode = e.Address.PostalCode,
+                                            StartDateTime = e.EventSchedule.StartDateTime,
+                                            EndDateTime = e.EventSchedule.EndDateTime,
+                                            Repeat = e.EventSchedule.Repeat
                                         })
                                         .FirstOrDefaultAsync();
 
             if (entity == null)
-                throw new NotFoundException(nameof(Event), request.Id);
+                throw new NotFoundException(nameof(Event), request.EventId);
 
             return entity;
         }

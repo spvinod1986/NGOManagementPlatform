@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NonProfit.Application.Events.Queries.GetEventDetail;
-using NonProfit.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 using NonProfit.Application.Events.Commands.CreateEvent;
 
@@ -29,7 +26,7 @@ namespace NonProfit.Web.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<EventDetailModel>> Get(int id)
         {
-            return Ok(await Mediator.Send(new GetEventDetailQuery { Id = id }));
+            return Ok(await Mediator.Send(new GetEventDetailQuery { EventId = id }));
         }
 
         // POST api/events

@@ -7,7 +7,7 @@ namespace NonProfit.Application.Events.Queries.GetEventDetail
         public GetEventDetailQueryValidator()
         {
             RuleFor(e => e).NotNull();
-            RuleFor(e => e.Id).NotEmpty();
+            RuleFor(e => e.EventId).NotEmpty();
         }
     }
 }
